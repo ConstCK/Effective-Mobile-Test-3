@@ -126,9 +126,12 @@ class Terminal:
                     book_author = self.service.author_input()
                     book_year = self.service.year_input()
                     data = {'title': book_title, 'author': book_author, 'year': book_year}
-                    print(self.library.add_book(data))
-                    print("*" * 100)
-                    time.sleep(1)
+                    try:
+                        print(self.library.add_book(data))
+                        print("*" * 100)
+                        time.sleep(1)
+                    except DBError as error:
+                        print(error)
                 case 7:
                     book_id = self.service.id_input()
                     try:
