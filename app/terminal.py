@@ -42,7 +42,7 @@ class Terminal:
                 self.service.books_representation(result)
 
             except StopIteration:
-                print("Данных больше нет...")
+                print('Требуемые данные отсутствуют...')
                 break
             go_ahead = self.service.page_input()
         print('Выход из режима показа всех книг...')
@@ -58,7 +58,7 @@ class Terminal:
                 self.service.books_representation(result)
 
             except StopIteration:
-                print("Данных больше нет...")
+                print('Требуемые данные отсутствуют...')
                 break
             go_ahead = self.service.page_input()
         print(f'Выход из режима показа книг {book_title}...')
@@ -74,7 +74,7 @@ class Terminal:
                 self.service.books_representation(result)
 
             except StopIteration:
-                print("Данных больше нет...")
+                print('Требуемые данные отсутствуют...')
                 break
             go_ahead = self.service.page_input()
         print(f'Выход из режима показа книг автора {book_author}...')
@@ -90,7 +90,7 @@ class Terminal:
                 self.service.books_representation(result)
 
             except StopIteration:
-                print("Данных больше нет...")
+                print('Требуемые данные отсутствуют...')
                 break
             go_ahead = self.service.page_input()
         print(f'Выход из режима показа книг публикации {book_year} г....')
@@ -103,7 +103,7 @@ class Terminal:
 
             match choice:
                 case 1:
-                    print("Завершение программы...")
+                    print('Завершение программы...')
                     time.sleep(2)
                     break
                 case 2:
@@ -128,7 +128,7 @@ class Terminal:
                     data = {'title': book_title, 'author': book_author, 'year': book_year}
                     try:
                         print(self.library.add_book(data))
-                        print("*" * 100)
+                        print('*' * 100)
                         time.sleep(1)
                     except DBError as error:
                         print(error)
@@ -136,7 +136,7 @@ class Terminal:
                     book_id = self.service.id_input()
                     try:
                         print(self.library.change_book_status(book_id))
-                        print("*" * 100)
+                        print('*' * 100)
                         time.sleep(1)
                     except DBError as error:
                         print(error)
@@ -144,9 +144,9 @@ class Terminal:
                     book_id = self.service.id_input()
                     try:
                         print(self.library.delete_book(book_id))
-                        print("*" * 100)
+                        print('*' * 100)
                         time.sleep(1)
                     except DBError as error:
                         print(error)
 
-        print("Программа завершена!")
+        print('Программа завершена!')

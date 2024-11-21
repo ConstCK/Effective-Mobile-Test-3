@@ -15,9 +15,12 @@ class DBEngine:
     def get_current_id(self) -> None:
         """Получение текущего id"""
         all_books = self.get_all_data()
-        result = max([item['id'] for item in all_books])
-        self.id = result + 1
-        print('!!!', self.id)
+        try:
+            result = max([item['id'] for item in all_books])
+            self.id = result + 1
+        except Exception:
+            self.id = 1
+
 
     def get_all_data(self) -> list[dict[str, str | int]]:
         """Получение всех книг из базы данных"""
