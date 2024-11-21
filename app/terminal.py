@@ -1,3 +1,5 @@
+import time
+
 from app.library import Library
 from services.paginator import PaginatorService
 from services.terminal import TerminalService
@@ -35,27 +37,25 @@ class Terminal:
             choice = self.service.menu_choice_input()
 
             match choice:
-                case 0:
+                case 1:
                     print("Завершение программы...")
                     time.sleep(3)
                     break
-                case 1:
-                    print(self.get_meta_data())
-                    print("*"*100)
-                    time.sleep(1)
                 case 2:
-                    self.get_all_data()
+                    print(self.get_meta_data())
+                    print("*" * 100)
+                    time.sleep(1)
                 case 3:
-                    self.get_categorized_data()
+                    self.get_all_data()
                 case 4:
-                    self.get_dated_data()
+                    self.get_categorized_data()
                 case 5:
-                    self.get_priced_data()
+                    self.get_dated_data()
                 case 6:
-                    self.add_spending_data()
+                    self.get_priced_data()
                 case 7:
-                    self.add_income_data()
+                    self.add_spending_data()
                 case 8:
-                    self.change_data()
+                    self.add_income_data()
 
         print("Программа завершена!")
