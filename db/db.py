@@ -1,5 +1,4 @@
 import json
-from json import JSONDecodeError
 
 from app.exceptions import DataError, DBError
 from services.validators import ValidatorService
@@ -12,6 +11,13 @@ class DBEngine:
         self.name = name
         self.id = 1
         self.validator = ValidatorService()
+
+    def get_current_id(self) -> None:
+        """Получение текущего id"""
+        all_books = self.get_all_data()
+        result = max([item['id'] for item in all_books])
+        self.id = result + 1
+        print('!!!', self.id)
 
     def get_all_data(self) -> list[dict[str, str | int]]:
         """Получение всех книг из базы данных"""
