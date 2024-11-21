@@ -1,12 +1,10 @@
-from services.validators import ValidatorService
+from db.db import DBEngine
 
 
 class Library:
     def __init__(self, name: str, db_name: str) -> None:
-        self.validator = ValidatorService()
         self.name = name
-        self.db = db_name
-
+        self.db = DBEngine(db_name)
 
 
 class Budget:

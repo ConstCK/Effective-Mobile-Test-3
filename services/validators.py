@@ -23,7 +23,6 @@ class ValidatorService:
     def validate_year(year: int) -> bool:
         """Валидация вводимого года книги"""
         now = datetime.datetime.now().year
-        print('123', type(now))
         return now > year > 1900 and isinstance(year, int)
 
     @staticmethod
@@ -41,7 +40,7 @@ class ValidatorService:
     def check_if_exists(data_id: int, all_data: list[dict[str, str | int]]) -> bool:
         """Проверка на существование книги с указанным id"""
         if all_data:
-            result = any([True if data_id == book.get("id") else False for book in all_data[1:]])
+            result = any([True if data_id == book['id'] else False for book in all_data])
             return result
         return False
 
@@ -51,5 +50,4 @@ class ValidatorService:
         return 9 > menu_id >= 0 and isinstance(menu_id, int)
 
 
-class PaginatorService:
-    pass
+

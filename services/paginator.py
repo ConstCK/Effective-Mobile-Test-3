@@ -1,0 +1,2 @@
+class PaginatorService:
+    pass
