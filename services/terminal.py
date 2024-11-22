@@ -43,13 +43,13 @@ class TerminalService:
         while True:
             book_author = input("Введите автора книги: ")
             if self.validator.validate_text(book_author):
-                return book_author
+                return book_author.title().strip()
             print("Некорректный автор книги")
 
     def year_input(self) -> int:
         """Сервис ввода года книги"""
         while True:
-            book_year = input("Введите год книги: ")
+            book_year = input("Введите год публикации книги: ")
             try:
                 book_year = int(book_year)
                 if self.validator.validate_year(book_year):
@@ -77,6 +77,6 @@ class TerminalService:
         for item in next(books):
             print('*' * 100)
             print(f'Книга №{item['id']}.')
-            print(f'Книга {item['title']}, автор: {item['author']}, печать: {item['year']} г.')
+            print(f'Книга "{item['title']}", автор: {item['author']}, печать: {item['year']} г.')
             print(f'Статус книги: {item['status']}.')
             print('*' * 100)
