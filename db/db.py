@@ -21,7 +21,6 @@ class DBEngine:
         except Exception:
             self.id = 1
 
-
     def get_all_data(self) -> list[dict[str, str | int]]:
         """Получение всех книг из базы данных"""
 
